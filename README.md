@@ -1,32 +1,112 @@
-# Introducing Base Perps: Perpetual Futures Trading Reimagined for Base
+# MiniKit Template
 
-We're excited to launch Base Perps, a revolutionary mini app bringing perpetual futures trading directly to the Base ecosystem and Farcaster community. Our mission is simple: democratize access to crypto's most liquid and popular derivatives markets through an intuitive, social-first experience.
-Why Base Perps?
-Traditional perps platforms are built for professional traders, featuring complex interfaces that intimidate newcomers. Base Perps changes this with a streamlined, mobile-optimized design that makes perpetual futures accessible to everyone in the Base and Farcaster ecosystem.
-What Are Perpetual Futures?
-With perpetual contracts, you're not just trading tokens—you're positioning yourself on where you think the market is heading next. Unlike traditional futures, perps have no expiration date, giving you the flexibility to hold positions as long as your strategy demands.
-Key Benefits:
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-onchain --mini`](), configured with:
 
-Speculate: Trade on price movements without owning the underlying asset
-Go Short: Profit from declining prices, unlike spot trading which only allows long positions
-Leverage Up: Control larger positions with less capital, amplifying potential returns
-Risk Management: Hedge your spot holdings against short-term volatility
+- [MiniKit](https://docs.base.org/builderkits/minikit/overview)
+- [OnchainKit](https://www.base.org/builders/onchainkit)
+- [Tailwind CSS](https://tailwindcss.com)
+- [Next.js](https://nextjs.org/docs)
 
-# Why Choose Base Perps?
+## Getting Started
 
-🌐 100+ Markets
-Go long or short on major cryptocurrencies like BTC, ETH, and SOL, plus trending memecoins like PEPE, DOGE, and the latest viral tokens.
-🔗 Native Base Integration
-Built specifically for the Base ecosystem, offering seamless integration with your existing Base wallet and DeFi positions.
-📱 Social Trading Experience
-Trade directly within Farcaster frames, share positions with your network, and discover trading opportunities through social signals.
-⚡ Lightning Fast Execution
-Powered by Base's low fees and fast finality, execute trades in seconds without the high gas costs of other networks.
-🎯 Smart Risk Management
-Set stop losses and take profit orders to automate your exit strategy, plus receive real-time notifications on position changes.
-🤝 Community-Driven
-Leverage Farcaster's social graph to follow successful traders, share insights, and build your reputation in the Base Perps community.
-🔒 Built on Base
-Benefit from Coinbase's institutional-grade security, Ethereum's battle-tested infrastructure, and Base's developer-friendly environment.
+1. Install dependencies:
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+# or
+bun install
+```
 
-Ready to trade the future? Launch Base Perps directly in your Farcaster feed and start trading perpetual futures with the simplicity of social media
+2. Verify environment variables, these will be set up by the `npx create-onchain --mini` command:
+
+You can regenerate the FARCASTER Account Association environment variables by running `npx create-onchain --manifest` in your project directory.
+
+The environment variables enable the following features:
+
+- Frame metadata - Sets up the Frame Embed that will be shown when you cast your frame
+- Account association - Allows users to add your frame to their account, enables notifications
+- Redis API keys - Enable Webhooks and background notifications for your application by storing users notification details
+
+```bash
+# Shared/OnchainKit variables
+NEXT_PUBLIC_ONCHAINKIT_PROJECT_NAME=
+NEXT_PUBLIC_URL=
+NEXT_PUBLIC_ICON_URL=
+NEXT_PUBLIC_ONCHAINKIT_API_KEY=
+
+# Frame metadata
+FARCASTER_HEADER=
+FARCASTER_PAYLOAD=
+FARCASTER_SIGNATURE=
+NEXT_PUBLIC_APP_ICON=
+NEXT_PUBLIC_APP_SUBTITLE=
+NEXT_PUBLIC_APP_DESCRIPTION=
+NEXT_PUBLIC_APP_SPLASH_IMAGE=
+NEXT_PUBLIC_SPLASH_BACKGROUND_COLOR=
+NEXT_PUBLIC_APP_PRIMARY_CATEGORY=
+NEXT_PUBLIC_APP_HERO_IMAGE=
+NEXT_PUBLIC_APP_TAGLINE=
+NEXT_PUBLIC_APP_OG_TITLE=
+NEXT_PUBLIC_APP_OG_DESCRIPTION=
+NEXT_PUBLIC_APP_OG_IMAGE=
+
+# Redis config
+REDIS_URL=
+REDIS_TOKEN=
+```
+
+3. Start the development server:
+```bash
+npm run dev
+```
+
+## Template Features
+
+### Frame Configuration
+- `.well-known/farcaster.json` endpoint configured for Frame metadata and account association
+- Frame metadata automatically added to page headers in `layout.tsx`
+
+### Background Notifications
+- Redis-backed notification system using Upstash
+- Ready-to-use notification endpoints in `api/notify` and `api/webhook`
+- Notification client utilities in `lib/notification-client.ts`
+
+### Theming
+- Custom theme defined in `theme.css` with OnchainKit variables
+- Pixel font integration with Pixelify Sans
+- Dark/light mode support through OnchainKit
+
+### MiniKit Provider
+The app is wrapped with `MiniKitProvider` in `providers.tsx`, configured with:
+- OnchainKit integration
+- Access to Frames context
+- Sets up Wagmi Connectors
+- Sets up Frame SDK listeners
+- Applies Safe Area Insets
+
+## Customization
+
+To get started building your own frame, follow these steps:
+
+1. Remove the DemoComponents:
+   - Delete `components/DemoComponents.tsx`
+   - Remove demo-related imports from `page.tsx`
+
+2. Start building your Frame:
+   - Modify `page.tsx` to create your Frame UI
+   - Update theme variables in `theme.css`
+   - Adjust MiniKit configuration in `providers.tsx`
+
+3. Add your frame to your account:
+   - Cast your frame to see it in action
+   - Share your frame with others to start building your community
+
+## Learn More
+
+- [MiniKit Documentation](https://docs.base.org/builderkits/minikit/overview)
+- [OnchainKit Documentation](https://docs.base.org/builderkits/onchainkit/getting-started)
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
