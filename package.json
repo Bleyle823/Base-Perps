@@ -17,12 +17,20 @@
     "react-dom": "^18",
     "@tanstack/react-query": "^5",
     "viem": "^2.27.2",
-    "wagmi": "^2.16.0"
+    "wagmi": "^2.16.0",
+    "@rabby-wallet/hyperliquid-sdk": "1.0.0-beta.20",
+    "antd": "^5.0.0",
+    "bignumber.js": "^9.0.1",
+    "clsx": "^1.1.1",
+    "ahooks": "^3.7.8",
+    "dayjs": "^1.10.7",
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
     "@types/node": "^22",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/lodash": "^4.14.172",
     "eslint": "^8",
     "eslint-config-next": "15.3.3",
     "eslint-config-prettier": "^10.1.1",
